@@ -5,7 +5,7 @@ Main FastAPI app.
 # -*- coding: utf-8 -*-
 from typing import List
 
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, Request
 
 from description import desc
 from helpers import emojis, passwd, random_users
@@ -63,3 +63,17 @@ async def random_emoji():
     Return a random emoji.
     """
     return {"emoji": emojis()}
+
+@app.post("/abc")
+async def runabc(request: Request):
+
+    inputStr = request.json()
+    jsonInput = inputStr.decode('utf-8')
+    print('body:' + jsonInput)
+    
+    result = subprocess.run(["/workspace/abcmodel"], input=jsonInput, text=True, stdout=subprocess.PIPE)
+    output = result.stdout
+    print(output)
+    json_out = json.loads(output)
+    return  json_out
+
