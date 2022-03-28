@@ -2,6 +2,7 @@
 
 # curl function to retrieve abc source files
 getabc () {
+  echo $githubauth $1
   curl -O -s https://$githubauth@raw.githubusercontent.com/CenterForTheBuiltEnvironment/ABCmodel/65node/model/$1
 }
 
