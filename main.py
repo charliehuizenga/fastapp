@@ -10,6 +10,7 @@ from fastapi import FastAPI, Query, Request
 from description import desc
 from helpers import emojis, passwd, random_users
 from pydantic_models import Emoji, Password, Person
+import json
 
 app = FastAPI(
     title="Something Random...",
@@ -67,8 +68,9 @@ async def random_emoji():
 @app.post("/abc")
 async def runabc(request: Request):
 
-    inputStr = request.json()
-    jsonInput = inputStr.decode('utf-8')
+    inputStr = await request.json()
+    #jsonInput = inputStr.decode('utf-8')
+    jsonInput = inputStr
     print('body:' + jsonInput)
     
     result = subprocess.run(["/workspace/abcmodel"], input=jsonInput, text=True, stdout=subprocess.PIPE)
