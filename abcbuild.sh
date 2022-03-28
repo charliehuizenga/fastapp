@@ -2,7 +2,7 @@
 
 # curl function to retrieve abc source files
 getabc () {
-  curl -O -s https://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@raw.githubusercontent.com/CenterForTheBuiltEnvironment/ABCmodel/65node/model/$1
+  curl -O -s https://$githubauth@raw.githubusercontent.com/CenterForTheBuiltEnvironment/ABCmodel/65node/model/$1
 }
 
 # download files
