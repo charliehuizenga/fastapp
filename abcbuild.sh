@@ -31,6 +31,9 @@ getabc SensationItem.h
 getabc SimComfortResult.h
 getabc SimResults.h
 
+echo compiling abc...
+
+head -10 abc_main.cpp
 
 # compile abc
 g++ -o abcmodel abc_main.cpp abc.cpp abc_65.cpp abc_bodybuilder.cpp abc_clothing_ensembles.cpp abc_json.cpp abc_utils.cpp ComfortCalculator.cpp LocalSensationOrderProcessor.cpp OverallSensationCalculator.cpp 
