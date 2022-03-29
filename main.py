@@ -11,6 +11,7 @@ from description import desc
 from helpers import emojis, passwd, random_users
 from pydantic_models import Emoji, Password, Person
 import json
+import subprocess
 
 app = FastAPI(
     title="Something Random...",
