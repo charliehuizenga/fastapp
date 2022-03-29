@@ -71,8 +71,8 @@ async def runabc(request: Request):
 
     inputStr = await request.json()
     #jsonInput = inputStr.decode('utf-8')
-    jsonInput = inputStr
-    print('body:' + json.dumps(jsonInput, indent=2))
+    jsonInput = json.dumps(inputStr, indent=2)
+    print('body:' + jsonInput)
     
     result = subprocess.run(["/workspace/abcmodel"], input=jsonInput, text=True, stdout=subprocess.PIPE)
     output = result.stdout
