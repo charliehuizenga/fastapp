@@ -79,13 +79,9 @@ async def sendmqtt(mqttStr: str = ''):
     
     except Exception as e:
         print('Trouble connecting to broker: ', e)
-
         ret = client.publish("charlie", mqttStr, qos=1)
         print("publishing data: " + str(mqttStr) + " ret: " + str(ret))
  
-
-
-
 @app.post("/abc")
 async def runabc(request: Request):
 
