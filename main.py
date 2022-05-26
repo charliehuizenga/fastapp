@@ -13,6 +13,7 @@ from pydantic_models import Emoji, Password, Person
 import json
 import subprocess
 import paho.mqtt.client as paho
+from paho import mqtt
 
 app = FastAPI(
     title="Something Random...",
