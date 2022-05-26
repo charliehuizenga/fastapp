@@ -72,7 +72,6 @@ async def random_emoji():
 async def sendmqtt(mqttStr: str = ''):
     mqtt_url="159.223.196.81"
     client = paho.Client(client_id="testing", userdata=None, protocol=paho.MQTTv5)
-
     try:
         client.connect(mqtt_url, 1883)
         print('connected to broker')
