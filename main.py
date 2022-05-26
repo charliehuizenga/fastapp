@@ -68,7 +68,7 @@ async def random_emoji():
     return {"emoji": emojis()}
 
 @app.put("/mqtt")
-async def sendmqtt(mqttStr: string = ''):
+async def sendmqtt(mqttStr: str = ''):
     mqtt_url="159.223.196.81"
     client = paho.Client(client_id="testing", userdata=None, protocol=paho.MQTTv5)
 
