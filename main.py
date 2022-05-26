@@ -73,15 +73,15 @@ async def sendmqtt(mqttStr: str = ''):
     mqtt_url="159.223.196.81"
     client = paho.Client(client_id="testing", userdata=None, protocol=paho.MQTTv5)
 
-try:
-    client.connect(mqtt_url, 1883,clean_start=False,properties=properties)
-    print('connected to broker')
+    try:
+        client.connect(mqtt_url, 1883)
+        print('connected to broker')
     
-except Exception as e:
-    print('Trouble connecting to broker: ', e)
+    except Exception as e:
+        print('Trouble connecting to broker: ', e)
 
-    ret = client.publish("charlie", mqttStr, qos=1)
-    print("publishing data: " + str(mqttStr) + " ret: " + str(ret))
+        ret = client.publish("charlie", mqttStr, qos=1)
+        print("publishing data: " + str(mqttStr) + " ret: " + str(ret))
  
 
 
