@@ -12,6 +12,7 @@ from helpers import emojis, passwd, random_users
 from pydantic_models import Emoji, Password, Person
 import json
 import subprocess
+import paho.mqtt.client as paho
 
 app = FastAPI(
     title="Something Random...",
@@ -65,6 +66,24 @@ async def random_emoji():
     Return a random emoji.
     """
     return {"emoji": emojis()}
+
+@app.put("/mqtt")
+async def sendmqtt(mqttStr: string = ''):
+    mqtt_url="159.223.196.81"
+    client = paho.Client(client_id="testing", userdata=None, protocol=paho.MQTTv5)
+
+try:
+    client.connect(mqtt_url, 1883,clean_start=False,properties=properties)
+    print('connected to broker')
+    
+except Exception as e:
+    print('Trouble connecting to broker: ', e)
+
+    ret = client.publish("charlie", mqttStr, qos=1)
+    print("publishing data: " + str(mqttStr) + " ret: " + str(ret))
+ 
+
+
 
 @app.post("/abc")
 async def runabc(request: Request):
