@@ -96,6 +96,8 @@ async def sendmqtt_get(mqttStr: str = ''):
     ret = client.publish("charlie", mqttStr, qos=1)
     print("publishing data: " + str(mqttStr) + " ret: " + str(ret))
 
+    return("success!")
+
 @app.post("/abc")
 async def runabc(request: Request):
 
