@@ -82,6 +82,20 @@ async def sendmqtt(mqttStr: str = ''):
     ret = client.publish("charlie", mqttStr, qos=1)
     print("publishing data: " + str(mqttStr) + " ret: " + str(ret))
  
+@app.get("/mqtt")
+async def sendmqtt_get(mqttStr: str = ''):
+    mqtt_url="159.223.196.81"
+    client = paho.Client(userdata=None, protocol=paho.MQTTv5)
+    try:
+        client.connect(mqtt_url, 1883)
+        print('connected to broker')
+    
+    except Exception as e:
+        print('Trouble connecting to broker: ', e)
+
+    ret = client.publish("charlie", mqttStr, qos=1)
+    print("publishing data: " + str(mqttStr) + " ret: " + str(ret))
+
 @app.post("/abc")
 async def runabc(request: Request):
 
