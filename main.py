@@ -79,7 +79,7 @@ async def sendmqtt(mqttStr: str = ''):
     except Exception as e:
         print('Trouble connecting to broker: ', e)
 
-    ret = client.publish("charlie", mqttStr, qos=1)
+    ret = client.publish("pcs-chair", mqttStr, qos=1)
     print("publishing data: " + str(mqttStr) + " ret: " + str(ret))
  
 @app.get("/mqtt")
@@ -93,7 +93,7 @@ async def sendmqtt_get(mqttStr: str = ''):
     except Exception as e:
         print('Trouble connecting to broker: ', e)
 
-    ret = client.publish("charlie", mqttStr, qos=1)
+    ret = client.publish("pcs-chair", mqttStr, qos=1)
     print("publishing data: " + str(mqttStr) + " ret: " + str(ret))
 
     return("success!")
