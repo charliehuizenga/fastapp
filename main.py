@@ -69,7 +69,7 @@ async def random_emoji():
     return {"emoji": emojis()}
 
 @app.put("/mqtt")
-async def sendmqtt(mqttStr: str = ''):
+async def sendmqtt(mqttStr: str = '', topic: str = 'pcs-chair'):
     mqtt_url="159.223.196.81"
     client = paho.Client(userdata=None, protocol=paho.MQTTv5)
     try:
@@ -79,11 +79,11 @@ async def sendmqtt(mqttStr: str = ''):
     except Exception as e:
         print('Trouble connecting to broker: ', e)
 
-    ret = client.publish("pcs-chair", mqttStr, qos=1)
-    print("publishing data: " + str(mqttStr) + " ret: " + str(ret))
+    ret = client.publish(topic, mqttStr, qos=1)
+    print("publishing data: " + str(mqttStr) + " to topic " + str(topic) + " ret: " + str(ret))
  
 @app.get("/mqtt")
-async def sendmqtt_get(mqttStr: str = ''):
+async def sendmqtt_get(mqttStr: str = '', topic: str = 'pcs-chair'):
     mqtt_url="159.223.196.81"
     client = paho.Client(userdata=None, protocol=paho.MQTTv5)
     try:
@@ -93,8 +93,8 @@ async def sendmqtt_get(mqttStr: str = ''):
     except Exception as e:
         print('Trouble connecting to broker: ', e)
 
-    ret = client.publish("pcs-chair", mqttStr, qos=1)
-    print("publishing data: " + str(mqttStr) + " ret: " + str(ret))
+    ret = client.publish(topic, mqttStr, qos=1)
+    print("publishing data: " + str(mqttStr) + " to topic " + str(topic) + " ret: " + str(ret))
 
     return("success!")
 
