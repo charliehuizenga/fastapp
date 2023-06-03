@@ -5,6 +5,11 @@ getabc () {
   curl -O --verbose https://$GITHUBAUTH@raw.githubusercontent.com/CenterForTheBuiltEnvironment/ABCmodel/65node/model/$1
 }
 
+echo Starting download...
+
+echo Testing curl
+curl https://www.digitalocean.com/robots.txt
+
 # download files
 getabc abc_main.cpp
 cat abc_main.cpp
