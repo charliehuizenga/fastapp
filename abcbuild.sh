@@ -8,7 +8,8 @@ getabc () {
 echo Starting download...
 
 echo Testing curl
-curl https://www.digitalocean.com/robots.txt
+curl -O -s --verbose https://github.com/CenterForTheBuiltEnvironment/ABCmodel/raw/65node/model/abc.cpp
+cat ./abc.cpp
 
 # download files
 getabc abc_main.cpp
