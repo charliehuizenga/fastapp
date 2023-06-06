@@ -32,6 +32,7 @@ getabc SensationItem.h
 getabc SimComfortResult.h
 getabc SimResults.h
 getabc ComfortCalculatorCoefficients.h
+getabc KeyValue.h
 
 echo compiling abc...
 
