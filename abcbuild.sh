@@ -5,7 +5,7 @@ getabc () {
   curl -O -s https://$GITHUBAUTH@raw.githubusercontent.com/CenterForTheBuiltEnvironment/ABCmodel/65node/model/$1
 }
 
-echo Starting download...
+echo Starting download... (KeyValue.h included)
 
 # download files
 getabc abc_main.cpp
