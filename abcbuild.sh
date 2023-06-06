@@ -5,7 +5,7 @@ getabc () {
   curl -O -s https://$GITHUBAUTH@raw.githubusercontent.com/CenterForTheBuiltEnvironment/ABCmodel/65node/model/$1
 }
 
-echo Starting download... (KeyValue.h included)
+echo Starting download... KeyValue.h included
 
 # download files
 getabc abc_main.cpp
@@ -32,9 +32,10 @@ getabc SensationItem.h
 getabc SimComfortResult.h
 getabc SimResults.h
 getabc ComfortCalculatorCoefficients.h
+getabc KeyValue.cpp
 getabc KeyValue.h
 
 echo compiling abc...
 
 # compile abc
-g++ -o abcmodel abc_main.cpp abc.cpp abc_65.cpp abc_bodybuilder.cpp abc_clothing_ensembles.cpp abc_json.cpp abc_utils.cpp ComfortCalculator.cpp LocalSensationOrderProcessor.cpp OverallSensationCalculator.cpp 
+g++ -o abcmodel abc_main.cpp abc.cpp abc_65.cpp abc_bodybuilder.cpp abc_clothing_ensembles.cpp abc_json.cpp abc_utils.cpp ComfortCalculator.cpp LocalSensationOrderProcessor.cpp OverallSensationCalculator.cpp KeyValue.cpp 
